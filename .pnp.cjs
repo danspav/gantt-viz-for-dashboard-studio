@@ -30,7 +30,9 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@splunk/dashboard-studio-extension", "virtual:9b4cf591e9645f762d442e1002aa3e5677092fc813cf7964fadf3045ffbd404305f0485822e29331cac5c3ccffef690aef0501e6eababf18088cd73c842f56d9#npm:1.0.0"],\
           ["@splunk/react-ui", "virtual:9b4cf591e9645f762d442e1002aa3e5677092fc813cf7964fadf3045ffbd404305f0485822e29331cac5c3ccffef690aef0501e6eababf18088cd73c842f56d9#npm:5.11.1"],\
+          ["@svar-ui/lib-react", "npm:1.3.0"],\
           ["@svar-ui/react-gantt", "virtual:9b4cf591e9645f762d442e1002aa3e5677092fc813cf7964fadf3045ffbd404305f0485822e29331cac5c3ccffef690aef0501e6eababf18088cd73c842f56d9#npm:2.7.0"],\
+          ["@svar-ui/react-toolbar", "virtual:9b4cf591e9645f762d442e1002aa3e5677092fc813cf7964fadf3045ffbd404305f0485822e29331cac5c3ccffef690aef0501e6eababf18088cd73c842f56d9#npm:2.6.0"],\
           ["chalk", "npm:5.6.2"],\
           ["esbuild", "npm:0.27.7"],\
           ["gantt_viz_for_dashboard_studio", "workspace:."],\
@@ -1218,7 +1220,7 @@ const RAW_RUNTIME_STATE =
           ["@svar-ui/react-core", "virtual:ad4ece69f1d9c9e99b7eb109b1c457727a124fab22598ff0f2872d5adc74fab48f6fe083748618f76d53a1eaee56c7d794db9ae392be2ef1c5221cf1db50b687#npm:2.6.0"],\
           ["@svar-ui/react-editor", "virtual:ad4ece69f1d9c9e99b7eb109b1c457727a124fab22598ff0f2872d5adc74fab48f6fe083748618f76d53a1eaee56c7d794db9ae392be2ef1c5221cf1db50b687#npm:2.6.0"],\
           ["@svar-ui/react-tasklist", "virtual:ad4ece69f1d9c9e99b7eb109b1c457727a124fab22598ff0f2872d5adc74fab48f6fe083748618f76d53a1eaee56c7d794db9ae392be2ef1c5221cf1db50b687#npm:2.6.0"],\
-          ["@svar-ui/react-toolbar", "virtual:ad4ece69f1d9c9e99b7eb109b1c457727a124fab22598ff0f2872d5adc74fab48f6fe083748618f76d53a1eaee56c7d794db9ae392be2ef1c5221cf1db50b687#npm:2.6.0"],\
+          ["@svar-ui/react-toolbar", "virtual:9b4cf591e9645f762d442e1002aa3e5677092fc813cf7964fadf3045ffbd404305f0485822e29331cac5c3ccffef690aef0501e6eababf18088cd73c842f56d9#npm:2.6.0"],\
           ["@types/react", null],\
           ["@types/react-dom", null],\
           ["react", "npm:18.3.1"],\
@@ -1293,7 +1295,7 @@ const RAW_RUNTIME_STATE =
           ["@svar-ui/react-grid", "virtual:ad4ece69f1d9c9e99b7eb109b1c457727a124fab22598ff0f2872d5adc74fab48f6fe083748618f76d53a1eaee56c7d794db9ae392be2ef1c5221cf1db50b687#npm:2.7.0"],\
           ["@svar-ui/react-menu", "virtual:ad4ece69f1d9c9e99b7eb109b1c457727a124fab22598ff0f2872d5adc74fab48f6fe083748618f76d53a1eaee56c7d794db9ae392be2ef1c5221cf1db50b687#npm:2.6.0"],\
           ["@svar-ui/react-tasklist", "virtual:ad4ece69f1d9c9e99b7eb109b1c457727a124fab22598ff0f2872d5adc74fab48f6fe083748618f76d53a1eaee56c7d794db9ae392be2ef1c5221cf1db50b687#npm:2.6.0"],\
-          ["@svar-ui/react-toolbar", "virtual:ad4ece69f1d9c9e99b7eb109b1c457727a124fab22598ff0f2872d5adc74fab48f6fe083748618f76d53a1eaee56c7d794db9ae392be2ef1c5221cf1db50b687#npm:2.6.0"],\
+          ["@svar-ui/react-toolbar", "virtual:9b4cf591e9645f762d442e1002aa3e5677092fc813cf7964fadf3045ffbd404305f0485822e29331cac5c3ccffef690aef0501e6eababf18088cd73c842f56d9#npm:2.6.0"],\
           ["@types/react", null],\
           ["@types/react-dom", null],\
           ["date-fns", "npm:3.6.0"],\
@@ -1413,13 +1415,13 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:ad4ece69f1d9c9e99b7eb109b1c457727a124fab22598ff0f2872d5adc74fab48f6fe083748618f76d53a1eaee56c7d794db9ae392be2ef1c5221cf1db50b687#npm:2.6.0", {\
-        "packageLocation": "./.yarn/__virtual__/@svar-ui-react-toolbar-virtual-13b4c6ac61/4/home/ubuntu/.yarn/berry/cache/@svar-ui-react-toolbar-npm-2.6.0-349647f0d7-10c0.zip/node_modules/@svar-ui/react-toolbar/",\
+      ["virtual:9b4cf591e9645f762d442e1002aa3e5677092fc813cf7964fadf3045ffbd404305f0485822e29331cac5c3ccffef690aef0501e6eababf18088cd73c842f56d9#npm:2.6.0", {\
+        "packageLocation": "./.yarn/__virtual__/@svar-ui-react-toolbar-virtual-20418693f5/4/home/ubuntu/.yarn/berry/cache/@svar-ui-react-toolbar-npm-2.6.0-349647f0d7-10c0.zip/node_modules/@svar-ui/react-toolbar/",\
         "packageDependencies": [\
           ["@svar-ui/core-locales", "npm:2.6.0"],\
           ["@svar-ui/lib-dom", "npm:0.13.1"],\
           ["@svar-ui/react-core", "virtual:ad4ece69f1d9c9e99b7eb109b1c457727a124fab22598ff0f2872d5adc74fab48f6fe083748618f76d53a1eaee56c7d794db9ae392be2ef1c5221cf1db50b687#npm:2.6.0"],\
-          ["@svar-ui/react-toolbar", "virtual:ad4ece69f1d9c9e99b7eb109b1c457727a124fab22598ff0f2872d5adc74fab48f6fe083748618f76d53a1eaee56c7d794db9ae392be2ef1c5221cf1db50b687#npm:2.6.0"],\
+          ["@svar-ui/react-toolbar", "virtual:9b4cf591e9645f762d442e1002aa3e5677092fc813cf7964fadf3045ffbd404305f0485822e29331cac5c3ccffef690aef0501e6eababf18088cd73c842f56d9#npm:2.6.0"],\
           ["@types/react", null],\
           ["@types/react-dom", null],\
           ["react", "npm:18.3.1"],\
@@ -1785,7 +1787,9 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@splunk/dashboard-studio-extension", "virtual:9b4cf591e9645f762d442e1002aa3e5677092fc813cf7964fadf3045ffbd404305f0485822e29331cac5c3ccffef690aef0501e6eababf18088cd73c842f56d9#npm:1.0.0"],\
           ["@splunk/react-ui", "virtual:9b4cf591e9645f762d442e1002aa3e5677092fc813cf7964fadf3045ffbd404305f0485822e29331cac5c3ccffef690aef0501e6eababf18088cd73c842f56d9#npm:5.11.1"],\
+          ["@svar-ui/lib-react", "npm:1.3.0"],\
           ["@svar-ui/react-gantt", "virtual:9b4cf591e9645f762d442e1002aa3e5677092fc813cf7964fadf3045ffbd404305f0485822e29331cac5c3ccffef690aef0501e6eababf18088cd73c842f56d9#npm:2.7.0"],\
+          ["@svar-ui/react-toolbar", "virtual:9b4cf591e9645f762d442e1002aa3e5677092fc813cf7964fadf3045ffbd404305f0485822e29331cac5c3ccffef690aef0501e6eababf18088cd73c842f56d9#npm:2.6.0"],\
           ["chalk", "npm:5.6.2"],\
           ["esbuild", "npm:0.27.7"],\
           ["gantt_viz_for_dashboard_studio", "workspace:."],\

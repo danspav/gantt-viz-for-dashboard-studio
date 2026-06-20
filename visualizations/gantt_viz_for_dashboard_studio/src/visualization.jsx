@@ -1,83 +1,76 @@
+import React, { useMemo } from 'react';
 import { useDataSources } from '@splunk/dashboard-studio-extension/react';
-import Paragraph from '@splunk/react-ui/Paragraph';
-import Table from '@splunk/react-ui/Table';
-import WaitSpinner from '@splunk/react-ui/WaitSpinner';
-import { useMemo } from 'react';
-import { createRoot } from 'react-dom/client';
-import './visualization.css';
-import chartIcon from './assets/ChartColumnSquare.svg';
 
-function normalizeData(data) {
-    if (data.rows && data.rows.length > 0) return data.rows;
-    if (data.columns && data.columns.length > 0) {
-        const numRows = data.columns[0].length;
-        return Array.from({ length: numRows }, (_, i) => data.columns.map((col) => col[i]));
-    }
-    return [];
-}
+import { Gantt, Willow } from '@svar-ui/react-gantt';
+import '@svar-ui/react-gantt/all.css';
 
-function LoadingState() {
-    return (
-        <div className="viz-container viz-container--empty">
-            <WaitSpinner size="large" />
-        </div>
-    );
-}
-
-function NoDataState() {
-    return (
-        <div className="viz-container viz-container--empty">
-            <div className="viz-message">
-                <img src={chartIcon} className="viz-message-icon" alt="" />
-                <Paragraph>No data available</Paragraph>
-            </div>
-        </div>
-    );
-}
-
-function DataTable({ fieldNames, rows }) {
-    return (
-        <div className="viz-container">
-            <div className="viz-scroll">
-                <Table stripeRows>
-                    <Table.Head>
-                        <Table.Row>
-                            {fieldNames.map((field) => (
-                                <Table.HeadCell key={String(field)}>{field}</Table.HeadCell>
-                            ))}
-                        </Table.Row>
-                    </Table.Head>
-                    <Table.Body>
-                        {rows.map((row, index) => (
-                            <Table.Row key={index}>
-                                {row.map((cell, cellIndex) => (
-                                    <Table.Cell key={cellIndex}>{String(cell)}</Table.Cell>
-                                ))}
-                            </Table.Row>
-                        ))}
-                    </Table.Body>
-                </Table>
-            </div>
-            <Paragraph className="viz-row-count">
-                Showing {rows.length} row{rows.length !== 1 ? 's' : ''}
-            </Paragraph>
-        </div>
-    );
-}
-
-function TableVisualization() {
+export default function Visualization() {
     const { dataSources, loading } = useDataSources();
-    const data = dataSources?.primary?.data || null;
 
-    const rows = useMemo(() => (data ? normalizeData(data) : []), [data]);
-    const fieldNames = useMemo(() => (data?.fields || []).map((f) => f.name || f), [data]);
+    // Get primary search results
+    const rows = dataSources?.primary?.data || [];
 
-    if (loading) return <LoadingState />;
-    if (!data) return <NoDataState />;
-    if (rows.length === 0) return <NoDataState />;
+    /**
+     * Transform Splunk rows -> Gantt tasks
+     * Expected fields from SPL:
+     * id, label, start_time, end_time, parent_id, progress
+     */
+    const tasks = useMemo(() => {
+        if (!rows || rows.length === 0) return [];
 
-    return <DataTable fieldNames={fieldNames} rows={rows} />;
+        return rows.map((row, index) => {
+            return {
+                id: row.id || index + 1,
+                text: row.label || row.name || `Task ${index + 1}`,
+                start: row.start_time ? new Date(row.start_time) : undefined,
+                end: row.end_time ? new Date(row.end_time) : undefined,
+                parent: row.parent_id || 0,
+                type: row.parent_id ? "task" : "summary",
+                progress: row.progress ? Number(row.progress) : 0,
+            };
+        });
+    }, [rows]);
+
+    /**
+     * Simple dependency mapping (optional v1)
+     * SPL fields: dependency_from, dependency_to
+     */
+    const links = useMemo(() => {
+        if (!rows || rows.length === 0) return [];
+
+        return rows
+            .filter(r => r.dependency_from && r.dependency_to)
+            .map((row, idx) => ({
+                id: idx + 1,
+                source: row.dependency_from,
+                target: row.dependency_to,
+                type: "e2e"
+            }));
+    }, [rows]);
+
+    /**
+     * Loading / empty state
+     */
+    if (loading) {
+        return <div style={{ padding: 16 }}>Loading Gantt...</div>;
+    }
+
+    if (!tasks.length) {
+        return <div style={{ padding: 16 }}>No data available</div>;
+    }
+
+    /**
+     * Render Gantt
+     */
+    return (
+        <div style={{ height: "100%", width: "100%" }}>
+            <Willow>
+                <Gantt
+                    tasks={tasks}
+                    links={links}
+                    readonly={true}
+                />
+            </Willow>
+        </div>
+    );
 }
-
-const rootElement = document.getElementById('root') || document.body;
-createRoot(rootElement).render(<TableVisualization />);
