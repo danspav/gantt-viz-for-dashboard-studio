@@ -1,7 +1,7 @@
 {
   "name": "gantt_viz_for_dashboard_studio",
   "version": "0.1.0",
-  "description": "A Gantt chart for use in Dashboard Studio",
+  "description": "A custom visualization for Splunk Dashboard Studio",
   "author": "Daniel Spavin",
   "type": "module",
   "scripts": {
@@ -21,10 +21,6 @@
     "tar": "^7.4.3"
   },
   "dependencies": {
-    "@svar-ui/lib-react": "^1.3.0",
-    "@svar-ui/react-gantt": "^2.7.0",
-    "@svar-ui/react-toolbar": "^2.6.0",
-    "install": "^0.13.0",
-    "react-is": "^19.2.7"
+    "@svar-ui/react-gantt": "^2.7.0"
   }
 }

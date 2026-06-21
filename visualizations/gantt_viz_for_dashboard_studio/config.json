@@ -7,7 +7,7 @@
   "hasEventHandlers": false,
   "config": {
     "name": "Gantt Viz For Dashboard Studio",
-    "description": "A Gantt chart for use in Dashboard Studio",
+    "description": "A custom visualization for Splunk Dashboard Studio",
     "category": "Custom",
     "icon": null,
     "dataContract": {
@@ -22,5 +22,3 @@
     "editorConfig": []
   }
 }
-
-

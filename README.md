@@ -1,6 +1,6 @@
 # gantt_viz_for_dashboard_studio
 
-A Gantt chart for use in Dashboard Studio
+A custom visualization for Splunk Dashboard Studio
 
 ## Project Info
 
