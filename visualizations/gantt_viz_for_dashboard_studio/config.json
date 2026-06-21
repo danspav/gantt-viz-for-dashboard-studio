@@ -11,14 +11,37 @@
     "category": "Custom",
     "icon": null,
     "dataContract": {
-      "requiredDataSources": ["primary"],
+      "requiredDataSources": [
+        "primary"
+      ],
       "optionalDataSources": []
     },
     "size": {
-      "initialWidth": 400,
-      "initialHeight": 300
+      "initialWidth": 600,
+      "initialHeight": 500
     },
-    "optionsSchema": {},
-    "editorConfig": []
+    "optionsSchema": {   
+    },
+    
+"editorConfig": [
+  {
+    "label": "Timeline",
+    "layout": [
+      [
+        {
+          "editor": "editor.select",
+          "label": "Time scale",
+          "option": "scaleMode",
+          "items": [
+            { "label": "Overview (Months)", "value": "overview" },
+            { "label": "Detailed (Months + Days)", "value": "detailed" },
+            { "label": "Fine (Days)", "value": "fine" }
+          ]
+        }
+      ]
+    ]
+  }
+]
+
   }
 }

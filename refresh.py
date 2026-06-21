@@ -3,10 +3,10 @@ import splunklib.client as client
 import getpass
 
 splunkServer = "localhost"
-splunkAdmin = "admin"
+splunkAdmin = "daniel"
 #splunkPassword = "c3pcdJQtQACEVb7M73RMRGabH"
 splunkPassword = "iPhone123!"
-splunkDestApp = "gantt-viz-for-dashboard-studio"
+splunkDestApp = "gantt_viz_for_dashboard_studio"
 
 if splunkDestApp:
     splunkService = client.connect(host=splunkServer, port=8089, username=splunkAdmin, password=splunkPassword, app=splunkDestApp)

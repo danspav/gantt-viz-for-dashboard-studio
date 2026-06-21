@@ -1,0 +1,4 @@
+
+
+To create a new visualisation, run this:
+npx @splunk/create@latest --mode=dashboard-studio-extension

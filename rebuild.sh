@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e  # stop on error
+#set -e  # stop on error
 
 # -----------------------------
 # Variables
@@ -9,13 +9,11 @@ export SPLUNK_HOME="/splunk"
 export GIT_HOME="/splunk/git"
 export APP_DIRECTORY_NAME=$(basename "$PWD")
 
-APP_NAME="$APP_DIRECTORY_NAME"
-
-SOURCE_DIR="$GIT_HOME/$APP_NAME/stage/$APP_NAME"
-TARGET_DIR="$SPLUNK_HOME/etc/apps/$APP_NAME"
+lSOURCE_DIR="$GIT_HOME/$APP_DIRECTORY_NAME/stage/$APP_DIRECTORY_NAME"
+TARGET_DIR="$SPLUNK_HOME/etc/apps/$APP_DIRECTORY_NAME"
 
 echo "========================================"
-echo "Building Splunk App: $APP_NAME"
+echo "Building Splunk App: $APP_DIRECTORY_NAME"
 echo "========================================"
 
 # -----------------------------

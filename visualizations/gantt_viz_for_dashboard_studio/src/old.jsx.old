@@ -1,0 +1,80 @@
+import { useDataSources } from '@splunk/dashboard-studio-extension/react';
+import Paragraph from '@splunk/react-ui/Paragraph';
+import Table from '@splunk/react-ui/Table';
+import WaitSpinner from '@splunk/react-ui/WaitSpinner';
+import { useMemo } from 'react';
+import { createRoot } from 'react-dom/client';
+import './visualization.css';
+import chartIcon from './assets/ChartColumnSquare.svg';
+
+
+
+import { Gantt, Willow } from '@svar-ui/react-gantt';
+import '@svar-ui/react-gantt/all.css';
+
+
+
+const ParagraphComponent = Paragraph.default || Paragraph;
+const WaitSpinnerComponent = WaitSpinner.default || WaitSpinner;
+const TableComponent = Table.default || Table;
+const { Head, Body, Row, Cell, HeadCell } = TableComponent;
+
+function normalizeData(data) {
+    console.log("Normalizing data: ", data)
+    if (data.rows && data.rows.length > 0) return data.rows;
+    if (data.columns && data.columns.length > 0) {
+        const numRows = data.columns[0].length;
+        return Array.from({ length: numRows }, (_, i) => data.columns.map((col) => col[i]));
+    }
+    return [];
+}
+
+function LoadingState() {
+    console.log("Loading - in LoadingState()")
+    return (
+        <div className="viz-container viz-container--empty">
+            <WaitSpinnerComponent size="large" />
+        </div>
+    );
+}
+
+function NoDataState() {
+    console.log("No data found - in NoDataState()")
+    return (
+        <div className="viz-container viz-container--empty">
+            <div className="viz-message">
+                <img src={chartIcon} className="viz-message-icon" alt="" />
+                <ParagraphComponent>No data available</ParagraphComponent>
+            </div>
+        </div>
+    );
+}
+
+function DataTable({ fieldNames, rows }) {
+    console.log("In DataTable()");
+    return (
+        <div className="viz-container">
+            <div className="viz-scroll">
+                <h1>Hellow world!</h1>
+            </div>
+            <ParagraphComponent className="viz-row-count">
+                Showing {rows.length} row{rows.length !== 1 ? 's' : ''}
+            </ParagraphComponent>
+        </div>
+    );
+}
+
+function TableVisualization() {
+    const { dataSources, loading } = useDataSources();
+    const data = dataSources?.primary?.data || null;
+
+    const rows = useMemo(() => (data ? normalizeData(data) : []), [data]);
+    const fieldNames = useMemo(() => (data?.fields || []).map((f) => f.name || f), [data]);
+    if (loading) return <LoadingState />;
+    if (!data) return <NoDataState />;
+    if (rows.length === 0) return <NoDataState />;
+    return <DataTable fieldNames={fieldNames} rows={rows} />;
+}
+
+const rootElement = document.getElementById('root') || document.body;
+createRoot(rootElement).render(<TableVisualization />);
