@@ -9,7 +9,7 @@ export SPLUNK_HOME="/splunk"
 export GIT_HOME="/splunk/git"
 export APP_DIRECTORY_NAME=$(basename "$PWD")
 
-lSOURCE_DIR="$GIT_HOME/$APP_DIRECTORY_NAME/stage/$APP_DIRECTORY_NAME"
+SOURCE_DIR="$GIT_HOME/$APP_DIRECTORY_NAME/stage/$APP_DIRECTORY_NAME"
 TARGET_DIR="$SPLUNK_HOME/etc/apps/$APP_DIRECTORY_NAME"
 
 echo "========================================"
